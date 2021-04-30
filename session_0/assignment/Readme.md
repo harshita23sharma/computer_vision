@@ -14,15 +14,14 @@
     - One channel is like a container, containing similar kind of information. It can contain a fixed number of low level features which are combined in that particular layer as a single feature. At first level, one channel contains a single feature. Through subsequent layer, one channel can contain a combined low level information or features extracted from the previous layers as well. So after a few layers of convolution network, if we combine features from previous layers and see them as a single feature, that can be further contained with one channel to learn that particular feature.
     
     - Kernel on the other hand works to give/output that particular channel. It is a tool or matrix ( generally 3*3) that convolves over an image(matrix) or feature map to extract one feature. Results of the convolution with kernel results in channel containing feature. Kernel is also termed as feature extractor or filter. One kernel can only outputs one feature at a time and that feature can also be a combination of low level features from previous layers, now combined considered as a single feature.
-    e.g :
-    Vertical kernel
+    - e.g : Vertical kernel: 
     [
         [0,1,0],
         [0,1,0],
         [0,1,0]
     ]
-
-    Horizontal Kernel
+    
+    - e.g : Horizontal Kernel: 
     [
         [0,0,0],
         [1,1,1],
@@ -46,10 +45,11 @@
 5. What happens during the training of a DNN?
     - Deep Neural network comprises of one input layer, one output layer and multiple hidden layers. Each layer have got multiple neurons which stores some values or numbers or activations (between 0 and 1). We can also have some activation function assigned to some or all neurons in layers. The activation function modifies the value of neurons while training. Neurons in one layer are influenced by the neurons of the previous layers or layers on the top. There is weighted sum taken from the neurons in the previous layer and activation function is applied to keep the value of weighted sum in the acceptable range. So, during the forward pass in the network, activation function keeps doing the transformation on input received from the previous layers.
 
-    The way learning happens in the DNN is through backward pass. When we provide an input to the network, it makes the prediction in the forward pass. The prediction might be wrong or correct. The network is provided with this information feedback through backpropagation. In the back pass, the network is provided with the feedback to change it according to the actual ground truth in this supervised learning process. So the network learns by looking at the actual output and updates the weight inside the network according to an algorithm called back propagation. This method basically calculates the error function and takes gradient of that (slope) with respect to the weights and updates its weight according to that. The process of providing the input and updating the weights in this way is repeated several times with more and more data. This help the network update the weights such that when predicting on an unseen data, the weights learnt or the trained model gives the correct predictions. 
+    - The way learning happens in the DNN is through backward pass. When we provide an input to the network, it makes the prediction in the forward pass. The prediction might be wrong or correct. The network is provided with this information feedback through backpropagation. In the back pass, the network is provided with the feedback to change it according to the actual ground truth in this supervised learning process. So the network learns by looking at the actual output and updates the weight inside the network according to an algorithm called back propagation. This method basically calculates the error function and takes gradient of that (slope) with respect to the weights and updates its weight according to that. The process of providing the input and updating the weights in this way is repeated several times with more and more data. This help the network update the weights such that when predicting on an unseen data, the weights learnt or the trained model gives the correct predictions. 
 
 3. How many times do we need to perform 3x3 convolutions operations to reach close to 1x1 from 199x199 (type each layer output like 199x199 > 197x197...)
     - It takes 99 convolution operation to reach from 199x199 to 1x1
+        ```
         199 x 199  | 3x3 >  197 x 197
         197 x 197  | 3x3 >  195 x 195
         195 x 195  | 3x3 >  193 x 193
@@ -149,4 +149,5 @@
         7 x 7  | 3x3 >  5 x 5
         5 x 5  | 3x3 >  3 x 3
         3 x 3  | 3x3 >  1 x 1
+    ```
 
